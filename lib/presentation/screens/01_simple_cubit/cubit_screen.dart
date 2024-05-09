@@ -1,5 +1,8 @@
+import 'package:blocs_app/config/config.dart';
+import 'package:blocs_app/presentation/blocs/01_simple_cubit/username_cubit.dart';
+import 'package:blocs_app/presentation/blocs/blocs.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CubitScreen extends StatelessWidget {
   const CubitScreen({super.key});
@@ -10,8 +13,17 @@ class CubitScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Cubit'),
       ),
-      body: const Center(
-        child: Text('Fernando Herrera'),
+      body: Center(
+          child: BlocBuilder<UsernameCubit, String>(
+        builder: (context, state) => Text(state),
+      )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context
+              .read<UsernameCubit>()
+              .setUsername(RandomGenerator.getRandomName());
+        },
+        child: const Icon(Icons.refresh),
       ),
     );
   }
