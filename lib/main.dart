@@ -16,7 +16,9 @@ class BlocsProvider extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => UsernameCubit()),
-        BlocProvider(create: (context) => RouterCubit())
+        BlocProvider(create: (context) => RouterCubit()),
+        BlocProvider(create: (context) => CounterCubit()),
+        BlocProvider(create: (context) => ThemeModeCubit()),
       ],
       child: const MyApp(),
     );
@@ -34,7 +36,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter BLoC',
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter,
-      theme: AppTheme(isDarkmode: false).getTheme(),
+      theme: AppTheme(isDarkmode: context.watch<ThemeModeCubit>().state)
+          .getTheme(),
     );
   }
 }
