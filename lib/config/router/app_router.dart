@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:blocs_app/presentation/screens/screens.dart';
 
-final appRouter = GoRouter(routes: [
+final appRouterPrivate = GoRouter(routes: [
   GoRoute(
     path: '/',
     builder: (context, state) => const HomeScreen(),

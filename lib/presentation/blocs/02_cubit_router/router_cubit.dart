@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:blocs_app/config/config.dart';
 
 class RouterCubit extends Cubit<GoRouter> {
-  RouterCubit() : super(appRouter);
+  RouterCubit() : super(appRouterPrivate);
 
   void goBack() {
     state.pop();
