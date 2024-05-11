@@ -1,4 +1,3 @@
-import 'package:blocs_app/config/config.dart';
 import 'package:blocs_app/presentation/blocs/01_simple_cubit/username_cubit.dart';
 import 'package:blocs_app/presentation/blocs/blocs.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +18,7 @@ class CubitScreen extends StatelessWidget {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context
-              .read<UsernameCubit>()
-              .setUsername(RandomGenerator.getRandomName());
+          context.read<UsernameCubit>().setRandomUsername();
         },
         child: const Icon(Icons.refresh),
       ),
